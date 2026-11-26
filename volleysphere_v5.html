@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VolleySphere — Club Demo</title>
+<style>
+:root{--ink:#17243a;--muted:#68758a;--bg:#f4f6fa;--card:#fff;--line:#e7ebf2;--blue:#2855d9;--blue2:#eaf0ff;--green:#16865b;--amber:#b87511;--red:#bd4b54;--shadow:0 12px 32px rgba(28,45,78,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.side{width:245px;background:#17243a;color:#fff;padding:24px 16px;display:flex;flex-direction:column;gap:22px}.brand{display:flex;gap:11px;align-items:center;padding:2px 8px}.mark{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,#6e91ff,#2855d9);display:grid;place-items:center;font-weight:900}.brand strong{display:block;font-size:16px}.brand small{color:#b7c3da}.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#c7d1e2;text-align:left;padding:11px 12px;border-radius:11px;display:flex;gap:12px;align-items:center}.nav button.active,.nav button:hover{background:#293a59;color:#fff}.nav .ico{width:20px;text-align:center}.sidefoot{margin-top:auto;color:#aab7cc;font-size:12px;padding:10px}.main{flex:1;min-width:0}.top{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:5}.crumb{font-size:13px;color:var(--muted)}.topright{display:flex;align-items:center;gap:12px}.pill{background:#eef3ff;color:#3156bd;padding:7px 11px;border-radius:99px;font-size:12px;font-weight:700}.avatar{width:34px;height:34px;border-radius:50%;background:#dce5ff;color:#3156bd;display:grid;place-items:center;font-weight:800}.content{max-width:1260px;margin:auto;padding:30px 32px 54px}.pagehead{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:23px}.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:800}.h1{font-size:29px;letter-spacing:-.04em;margin:5px 0 6px}.sub{color:var(--muted);max-width:720px;margin:0}.btn{border:0;background:var(--blue);color:white;border-radius:10px;padding:10px 15px;font-weight:700;box-shadow:0 5px 14px #2855d926}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}.btn.soft{background:var(--blue2);color:var(--blue);box-shadow:none}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.clickcard{cursor:pointer;transition:.18s}.clickcard:hover{transform:translateY(-2px);border-color:#b8c8fa}.statlabel{font-size:12px;color:var(--muted);font-weight:650}.statnum{font-size:30px;font-weight:800;letter-spacing:-.05em;margin:8px 0 2px}.statnote{font-size:12px;color:var(--muted)}.sectionrow{display:flex;align-items:center;justify-content:space-between;margin:25px 0 12px}.sectionrow h2{font-size:17px;margin:0}.sectionrow span{color:var(--muted);font-size:12px}.cols{grid-template-columns:1.3fr 1fr}.teamgrid{grid-template-columns:repeat(3,1fr)}.team{display:flex;align-items:center;gap:13px}.teamicon{width:43px;height:43px;border-radius:14px;background:#edf1ff;display:grid;place-items:center;font-size:20px}.team strong{display:block}.team small{color:var(--muted)}.tag{font-size:11px;font-weight:750;padding:4px 8px;border-radius:99px;background:#eef7f2;color:var(--green)}.tag.amber{background:#fff5e5;color:var(--amber)}.tag.gray{background:#f0f2f6;color:#657187}.barrow{display:grid;grid-template-columns:120px 1fr 42px;gap:12px;align-items:center;margin:14px 0;font-size:13px}.bar{height:8px;background:#edf0f5;border-radius:20px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue);border-radius:20px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:13px}.table th{text-align:left;color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:11px 10px;border-bottom:1px solid var(--line)}.table td{padding:13px 10px;border-bottom:1px solid #f0f2f6}.table tr:last-child td{border-bottom:0}.name{font-weight:750}.muted{color:var(--muted)}.actions{display:flex;gap:8px;flex-wrap:wrap}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.field.full{grid-column:1/-1}.notice{padding:13px 15px;background:#f5f7ff;border:1px solid #e4eaff;border-radius:12px;color:#40527c;font-size:13px}.kpis{display:flex;gap:9px;flex-wrap:wrap}.kpi{padding:11px 13px;border:1px solid var(--line);border-radius:12px;min-width:115px}.kpi b{display:block;font-size:19px}.kpi small{color:var(--muted)}.hidden{display:none!important}.modalback{position:fixed;inset:0;background:#101a2b80;display:grid;place-items:center;padding:18px;z-index:20}.modal{background:#fff;border-radius:18px;padding:22px;max-width:620px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 60px #101a2b44}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modalhead h3{margin:0}.x{border:0;background:#f0f2f6;border-radius:9px;width:32px;height:32px}.toast{position:fixed;bottom:22px;right:22px;background:#17243a;color:white;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);z-index:30}.mobilemenu{display:none}
+@media(max-width:900px){.side{width:205px}.stats{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.teamgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.app{display:block}.side{width:auto;padding:12px 14px;gap:10px}.brand{padding:0}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.sidefoot{display:none}.top{height:58px;padding:0 16px}.content{padding:22px 15px 40px}.pagehead{display:block}.pagehead .btn{margin-top:14px}.h1{font-size:25px}.teamgrid,.stats{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.barrow{grid-template-columns:95px 1fr 35px}.topright .pill{display:none}}
+
+/* VolleySphere visual refresh: consistent navy frame */
+.top{background:#17243a;color:#fff;border-bottom:1px solid #293a59;box-shadow:0 6px 20px rgba(15,28,49,.12)}
+.top .crumb,.top .muted{color:#d3dced}.top .crumb b{color:#fff}
+.top .pill{background:#293a59;color:#eaf0ff;border:1px solid #405477}
+.top .avatar{background:#eaf0ff;color:#17243a}
+.portalgrid{grid-template-columns:repeat(3,minmax(0,1fr));margin:22px 0}
+.portalcard{position:relative;overflow:hidden;min-height:245px;display:flex;flex-direction:column;gap:12px}
+.portalicon{width:52px;height:52px;border-radius:16px;background:#eaf0ff;color:#2855d9;display:grid;place-items:center;font-size:25px}
+.portalcard h2{font-size:19px;margin:0;letter-spacing:-.02em}.portalcard p{font-size:13px;color:var(--muted);margin:0}
+.portalcard .tag{margin-top:auto;align-self:flex-start}
+.portalcard:after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;right:-42px;top:-45px;background:#eaf0ff;opacity:.65;pointer-events:none}
+.portalintro{max-width:900px}.portalintro .featuregrid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:18px}
+.portalintro .feature{padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.portalintro .feature b{display:block;margin-bottom:5px}.portalintro .feature p{margin:0;font-size:13px;color:var(--muted)}
+.sitefooter{background:#17243a;color:#e8eef8;padding:28px 32px 22px;margin-top:28px}
+.footerinner{max-width:1260px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+.footerbrand{font-size:17px;font-weight:800;letter-spacing:-.02em}
+.sitefooter p{font-size:12px;line-height:1.7;color:#bdc9dc;margin:8px 0 0;max-width:560px}
+.footerlinks{display:flex;gap:10px 18px;justify-content:flex-end;align-content:start;flex-wrap:wrap}
+.footerlinks a{color:#e8eef8;text-decoration:none;font-size:12px}
+.footerlinks a:hover{text-decoration:underline;color:#a9c0ff}
+.footerbottom{max-width:1260px;margin:20px auto 0;padding-top:14px;border-top:1px solid #35445e;color:#aebbd0;font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){.portalgrid{grid-template-columns:1fr 1fr}.footerinner{grid-template-columns:1fr}.footerlinks{justify-content:flex-start}}
+@media(max-width:650px){.top{background:#17243a;padding:0 15px}.portalgrid,.portalintro .featuregrid{grid-template-columns:1fr}.portalcard{min-height:205px}.sitefooter{padding:24px 16px 18px}.footerbottom{margin-top:16px}}
+
+
+/* V3: director-facing, portal-first product shell */
+.side{width:258px;padding:28px 18px;gap:26px}
+.nav{gap:7px}
+.navlabel{font-size:10px;letter-spacing:.14em;font-weight:800;color:#8293ae;padding:8px 12px 2px}
+.nav button{font-size:14px;padding:12px 13px}
+.nav button.active{box-shadow:inset 3px 0 #8eabff;background:#293a59}
+.top{height:76px;padding:0 clamp(18px,3vw,42px)}
+.topright{gap:10px}
+.language-label{font-size:11px;color:#d3dced}
+.language-select{background:#293a59;color:#fff;border:1px solid #405477;border-radius:9px;padding:8px 9px;font-weight:700;outline:none}
+.loginbtn{border:1px solid #8196bd;background:#fff;color:#17243a;border-radius:10px;padding:9px 15px;font-weight:750}
+.loginbtn:hover{background:#eaf0ff}
+.content{max-width:1160px;padding:38px clamp(18px,3vw,42px) 58px}
+#overview .pagehead{justify-content:center;text-align:center;margin:8px auto 26px}
+#overview .pagehead>div{max-width:850px}
+#overview .h1{font-size:clamp(32px,3vw,42px)}
+#overview .sub{max-width:790px;margin:0 auto;font-size:16px}
+#overview .eyebrow{text-align:center}
+#overview .card[style*="linear-gradient"]{max-width:980px;margin:0 auto 30px!important;text-align:center;padding:25px 30px}
+#overview .sectionrow{max-width:1040px;margin:30px auto 14px}
+.portalgrid{max-width:1040px;margin:0 auto 28px;gap:18px}
+.portalcard{min-height:250px;padding:24px;align-items:flex-start;text-align:left}
+.portalcard .portalicon{width:58px;height:58px}
+.portalcard h2{font-size:20px}
+.portalcard p{line-height:1.7}
+#overview>.grid.teamgrid{max-width:1040px;margin:0 auto}
+#overview>.notice{max-width:1040px;margin-left:auto!important;margin-right:auto!important}
+.page:not(#overview){max-width:1080px;margin:0 auto}
+.sitefooter{padding-left:clamp(18px,3vw,42px);padding-right:clamp(18px,3vw,42px)}
+@media(max-width:900px){
+ .side{width:225px}.content{padding-top:28px}
+ .portalgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+ .app{display:block}.side{width:auto;padding:13px 14px;gap:10px}
+ .nav{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+ .navlabel{grid-column:1/-1;padding:7px 8px 1px}
+ .nav button{font-size:12px;padding:9px 8px}
+ .top{height:auto;min-height:64px;gap:8px;padding:10px 14px;flex-wrap:wrap}
+ .topright{gap:7px}.topright .pill{display:none}
+ .language-label{display:none}.language-select{padding:7px}
+ .loginbtn{padding:7px 10px;font-size:12px}
+ .content{padding:25px 15px 38px}
+ #overview .card[style*="linear-gradient"]{padding:20px 17px}
+ .portalgrid{grid-template-columns:1fr}.portalcard{min-height:205px;padding:20px}
+}
+
+
+/* V4: horizontal, portal-first navigation in the main header */
+.app{display:block;min-height:100vh}
+.side{display:none!important}
+.top{display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:88px;height:auto;padding:14px clamp(18px,3vw,44px);flex-wrap:nowrap}
+.topbrand{display:flex;align-items:center;gap:12px;flex:0 0 auto;min-width:190px}
+.topbrand .mark{width:42px;height:42px;border-radius:14px;color:#fff}
+.topbrand strong{display:block;color:#fff;font-size:17px;line-height:1.2}
+.topbrand small{display:block;color:#bdc9dc;font-size:11px;margin-top:3px}
+.topnav{display:flex;align-items:center;justify-content:center;gap:5px;flex:1;min-width:0;overflow:visible}
+.topnav .navlabel{display:none}
+.topnav button{display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;text-align:center;color:#d3dced;border:1px solid transparent;background:transparent;border-radius:11px;padding:11px 13px;font-size:13px;font-weight:650;transition:background .18s,border-color .18s,color .18s}
+.topnav button .ico{width:auto;font-size:15px}
+.topnav button:hover{background:#293a59;color:#fff}
+.topnav button.active{background:#293a59;color:#fff;border-color:#405477;box-shadow:inset 0 -2px #8eabff}
+.topright{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.content{max-width:1240px;margin:0 auto;padding:42px clamp(18px,3vw,44px) 60px}
+.sitefooter{margin-top:30px}
+@media(max-width:1120px){
+ .top{gap:12px;padding-left:18px;padding-right:18px}
+ .topbrand{min-width:160px}
+ .topnav{gap:2px}
+ .topnav button{padding:10px 8px;font-size:12px;gap:6px}
+ .topright{gap:6px}
+}
+@media(max-width:850px){
+ .top{display:grid;grid-template-columns:1fr auto;gap:12px 16px}
+ .topbrand{grid-column:1;grid-row:1}
+ .topright{grid-column:2;grid-row:1}
+ .topnav{grid-column:1/-1;grid-row:2;justify-content:flex-start;overflow-x:auto;padding:2px 0 5px;scrollbar-width:thin}
+ .topnav button{flex:0 0 auto}
+ .content{padding-top:30px}
+}
+@media(max-width:520px){
+ .top{padding:12px 13px;gap:9px}
+ .topbrand{min-width:0}.topbrand .mark{width:36px;height:36px}.topbrand strong{font-size:15px}.topbrand small{font-size:10px}
+ .topright .pill,.language-label{display:none}
+ .language-select{padding:7px 8px;font-size:12px}
+ .loginbtn{padding:7px 10px;font-size:12px}
+ .topnav{gap:4px}
+ .topnav button{font-size:11px;padding:9px 10px}
+ .content{padding:24px 14px 38px}
+}
+
+
+/* V5 practical portal cards */
+.portalintro .pagehead{display:block;text-align:center;max-width:900px;margin:4px auto 28px}
+.portalintro .pagehead>div{max-width:900px;margin:0 auto}
+.portalintro .pagehead .eyebrow{text-align:center}
+.portalintro .pagehead .sub{margin:0 auto}
+.portalintro .pagehead>.btn{margin:18px auto 0}
+.portalintro>.card{padding:25px}
+.portalintro>.card>h2{text-align:center;font-size:23px!important;margin:0 0 8px!important}
+.portalintro>.card>.muted{text-align:center;max-width:820px;margin:0 auto!important;line-height:1.7}
+.portalintro .featuregrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.portalintro .feature.actioncard{min-height:185px;padding:20px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#fff,#f8faff);box-shadow:0 8px 22px rgba(28,45,78,.045);cursor:pointer;display:flex;flex-direction:column;gap:10px;transition:.18s}
+.portalintro .feature.actioncard:hover{transform:translateY(-3px);border-color:#b8c8fa;box-shadow:0 14px 28px rgba(28,45,78,.09)}
+.actionicon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#eaf0ff;color:#2855d9;font-size:23px}
+.portalintro .feature.actioncard b{font-size:16px}
+.portalintro .feature.actioncard p{font-size:13px;line-height:1.6}
+.actionlink{margin-top:auto;color:#2855d9;font-size:12px;font-weight:800}
+@media(max-width:900px){.portalintro .featuregrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.portalintro .featuregrid{grid-template-columns:1fr}.portalintro .feature.actioncard{min-height:150px}}
+
+</style>
+</head>
+<body>
+<div class="app">
+
+<main class="main">
+<header class="top">
+ <div class="topbrand"><div class="mark">V</div><div><strong>VolleySphere</strong><small>Club performance platform</small></div></div>
+ <nav class="nav topnav" id="nav" aria-label="Main navigation">
+  <button class="active" data-page="overview"><span class="ico">⌂</span><span data-i18n="navOverview">Overview</span></button>
+  <button data-page="managementPortal"><span class="ico">▦</span><span data-i18n="navManagement">Management Portal</span></button>
+  <button data-page="staffPortal"><span class="ico">🏐</span><span data-i18n="navStaff">Technical Staff Portal</span></button>
+  <button data-page="playerPortal"><span class="ico">♙</span><span data-i18n="navPlayer">Player Portal</span></button>
+ </nav>
+ <div class="topright">
+  <span class="pill" data-i18n="demoData">CONCEPT DEMO</span>
+  <label class="language-label" for="languageSelect" data-i18n="language">Language</label>
+  <select id="languageSelect" class="language-select" aria-label="Select language" onchange="setLanguage(this.value)"><option value="en">EN</option><option value="it">IT</option></select>
+  <button class="loginbtn" onclick="openLogin()" data-i18n="signIn">Sign in</button>
+ </div>
+</header>
+<div class="content">
+<section id="overview" class="page">
+ <div class="pagehead"><div><div class="eyebrow">A connected volleyball environment</div><h1 class="h1">Welcome to VolleySphere</h1><p class="sub">One connected platform for club operations, coaching, performance and player development. VolleySphere aims to make the everyday work of a volleyball club easier to organise, understand and improve.</p></div></div>
+ <div class="card" style="margin-bottom:22px;background:linear-gradient(135deg,#fff 0%,#f0f4ff 100%)"><div class="eyebrow">Our purpose</div><h2 style="font-size:19px;margin:7px 0">Bringing every part of the volleyball journey together</h2><p class="muted" style="font-size:13px;max-width:900px;margin:0">From managing teams and coordinating staff to recording training and match performance, following physical development and reviewing emerging talent, VolleySphere is designed to connect useful information in one clear, user-friendly space. Different people have different responsibilities, so each role has its own dedicated portal.</p></div>
+ <div class="sectionrow"><h2>Explore your portal</h2><span>Select a role to understand its workspace</span></div>
+ <div class="grid portalgrid">
+  <div class="card clickcard portalcard" onclick="go('managementPortal')"><div class="portalicon">▦</div><div class="eyebrow">Club leadership</div><h2>Management Portal</h2><p>For club directors and administrators who coordinate the organisation, teams, people and club-wide activity.</p><span class="tag">Explore management →</span></div>
+  <div class="card clickcard portalcard" onclick="go('staffPortal')"><div class="portalicon">🏐</div><div class="eyebrow">Coaching and performance</div><h2>Technical Staff Portal</h2><p>For coaches, assistant coaches, physical trainers and scouts who plan activities and support athlete development.</p><span class="tag">Explore technical staff →</span></div>
+  <div class="card clickcard portalcard" onclick="go('playerPortal')"><div class="portalicon">♙</div><div class="eyebrow">Individual development</div><h2>Player Portal</h2><p>For registered players who want to follow their schedule, attendance, performance and development over time.</p><span class="tag">Explore player area →</span></div>
+ </div>
+ <div class="sectionrow"><h2>How VolleySphere connects the club</h2><span>One shared environment</span></div>
+ <div class="grid teamgrid"><div class="card"><div class="teamicon">🏢</div><b>Club operations</b><p class="muted" style="font-size:13px">Teams, staff, registrations and coordination.</p></div><div class="card"><div class="teamicon">📋</div><b>Training and matches</b><p class="muted" style="font-size:13px">Attendance, skill records and match events.</p></div><div class="card"><div class="teamicon">📈</div><b>Player development</b><p class="muted" style="font-size:13px">Physical assessments, progress and insights.</p></div></div>
+ <div class="notice" style="margin-top:16px"><b>Prototype note:</b> This is an independent concept demonstration using fictional sample data. It is not connected to a real club, does not yet provide secure user accounts or role-based permissions, and does not include live AI video analysis.</div>
+</section>
+<section id="managementPortal" class="page hidden portalintro">
+ <div class="pagehead"><div><div class="eyebrow">Portal introduction · Club leadership</div><h1 class="h1">Management Portal</h1><p class="sub">A central workspace for club directors and administrators to understand and coordinate the organisation as a whole.</p></div><button class="btn secondary" onclick="go('overview')">← Back to overview</button></div>
+ <div class="card"><h2 style="margin-top:0">What can management do?</h2><p class="muted" style="font-size:13px">The Management Portal is intended to give club leadership a clear picture of teams, people, registrations and operational activity, helping directors coordinate resources and make informed decisions.</p><div class="grid featuregrid">
+ <div class="feature"><b>Teams and seasons</b><p>Organise teams, squads, season information and coaching assignments.</p></div><div class="feature"><b>Players and registrations</b><p>Keep player records and registration workflows organised.</p></div><div class="feature"><b>Staff and responsibilities</b><p>Coordinate coaches, technical staff and their responsibilities.</p></div><div class="feature"><b>Club-wide overview</b><p>Review schedules, activity summaries and reports across the club.</p></div></div><div class="actions" style="margin-top:20px"><button class="btn" onclick="go('club')">Explore club management →</button><button class="btn secondary" onclick="go('reports')">View reports</button></div></div>
+</section>
+<section id="staffPortal" class="page hidden portalintro">
+ <div class="pagehead"><div><div class="eyebrow">Portal introduction · Coaching and performance</div><h1 class="h1">Technical Staff Portal</h1><p class="sub">A practical workspace for the people who plan training, guide athletes, evaluate performance and support team development.</p></div><button class="btn secondary" onclick="go('overview')">← Back to overview</button></div>
+ <div class="card"><h2 style="margin-top:0">What can technical staff do?</h2><p class="muted" style="font-size:13px">The Technical Staff Portal brings day-to-day coaching workflows together. Coaches and authorised staff can record activities, review performance and build a clearer picture of player and team progress.</p><div class="grid featuregrid">
+ <div class="feature"><b>Attendance</b><p>Record session participation and review attendance patterns.</p></div><div class="feature"><b>Training centre</b><p>Capture selected technical indicators during drills and follow progress.</p></div><div class="feature"><b>Match centre</b><p>Log match actions and review team and player statistics.</p></div><div class="feature"><b>Physical assessment</b><p>Record structured tests and compare results over time.</p></div><div class="feature"><b>Talent scouting</b><p>Review submitted profiles and document scouting observations.</p></div><div class="feature"><b>Reports and insights</b><p>Bring records together to support coaching discussions and decisions.</p></div></div><div class="actions" style="margin-top:20px"><button class="btn" onclick="go('attendance')">Explore technical workspace →</button><button class="btn secondary" onclick="go('training')">Open training centre</button></div></div>
+</section>
+<section id="playerPortal" class="page hidden portalintro">
+ <div class="pagehead"><div><div class="eyebrow">Portal introduction · Athlete experience</div><h1 class="h1">Player Portal</h1><p class="sub">A personal space where players can understand their activities, follow their progress and stay connected with their team.</p></div><button class="btn secondary" onclick="go('overview')">← Back to overview</button></div>
+ <div class="card"><h2 style="margin-top:0">What could players access?</h2><p class="muted" style="font-size:13px">The Player Portal is designed to make relevant information easy to find, helping each athlete take an active role in their development while keeping personal information appropriately protected.</p><div class="grid featuregrid">
+ <div class="feature"><b>My profile</b><p>View personal sporting information, team and playing position.</p></div><div class="feature"><b>My schedule</b><p>Check upcoming training sessions, matches and team activities.</p></div><div class="feature"><b>My attendance</b><p>Review personal attendance history and session participation.</p></div><div class="feature"><b>My performance</b><p>See coach-approved training and match feedback relevant to the player.</p></div><div class="feature"><b>My physical progress</b><p>Follow authorised assessment results and development over time.</p></div><div class="feature"><b>My goals</b><p>Understand agreed development priorities and next steps with the coach.</p></div></div><div class="notice" style="margin-top:16px">Player accounts, personal dashboards and privacy permissions are planned for a future secure version. This prototype does not provide individual player logins.</div><div class="actions" style="margin-top:20px"><button class="btn" onclick="go('teams')">Explore sample player directory →</button><button class="btn secondary" onclick="go('physical')">View physical assessment example</button></div></div>
+</section>
+<section id="teams" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">Club structure</div><h1 class="h1">Teams & players</h1><p class="sub">A central player profile connects attendance, training, match and physical records.</p></div><button class="btn secondary" onclick="toast('Player creation is a planned next step in this demo.')">＋ Add player</button></div>
+ <div class="grid teamgrid" id="teamCards"></div>
+ <div class="sectionrow"><h2 id="playerTitle">Sample player directory</h2><span>Fictional names and data</span></div>
+ <div class="card tablewrap"><table class="table"><thead><tr><th>Player</th><th>Team</th><th>Position</th><th>Jersey</th><th>Status</th></tr></thead><tbody id="players"></tbody></table></div>
+</section>
+<section id="club" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">Director workspace</div><h1 class="h1">Club & team management</h1><p class="sub">A director-level view of the club: teams, staff, player registrations and operational status. The director can see the whole organisation while coaches manage their own teams.</p></div><button class="btn" onclick="toast('In a real system this would start a secure team setup workflow.')">＋ Create team</button></div>
+ <div class="grid stats">
+  <div class="card"><div class="statlabel">Active teams</div><div class="statnum">3</div><div class="statnote">Demo club structure</div></div>
+  <div class="card"><div class="statlabel">Coaching staff</div><div class="statnum">5</div><div class="statnote">Sample staff records</div></div>
+  <div class="card"><div class="statlabel">Player registrations</div><div class="statnum">42</div><div class="statnote">Across all teams</div></div>
+  <div class="card"><div class="statlabel">Items needing review</div><div class="statnum">4</div><div class="statnote">Illustrative admin queue</div></div>
+ </div>
+ <div class="grid cols">
+  <div class="card"><div class="sectionrow" style="margin-top:0"><h2>Team overview</h2><span>Director can open each team</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Team</th><th>Head coach</th><th>Players</th><th>Season status</th></tr></thead><tbody>
+  <tr><td class="name">Serie C Women</td><td>Marco B.</td><td>16</td><td><span class="tag">Active</span></td></tr>
+  <tr><td class="name">Under 18 Women</td><td>Laura R.</td><td>14</td><td><span class="tag">Active</span></td></tr>
+  <tr><td class="name">Under 16 Women</td><td>Andrea M.</td><td>12</td><td><span class="tag">Active</span></td></tr>
+ </tbody></table></div></div>
+  <div class="card"><div class="sectionrow" style="margin-top:0"><h2>Director's checklist</h2><span>Example tasks</span></div>
+   <div style="display:grid;gap:12px;font-size:13px">
+    <div><span class="tag amber">Review</span> <b>2 player registrations</b><div class="muted">Check documents and registration details</div></div>
+    <div><span class="tag amber">Review</span> <b>1 staff assignment</b><div class="muted">Confirm coach allocation for a team</div></div>
+    <div><span class="tag gray">Upcoming</span> <b>Team schedule planning</b><div class="muted">Check gym and training time conflicts</div></div>
+    <div><span class="tag gray">Upcoming</span> <b>Monthly club review</b><div class="muted">Review attendance and team reports</div></div>
+   </div>
+  </div>
+ </div>
+ <div class="sectionrow"><h2>What the director should control</h2><span>Proposed scope — to validate with the club</span></div>
+ <div class="grid teamgrid">
+  <div class="card"><b>Teams & seasons</b><p class="muted" style="font-size:13px">Create teams, assign coaches, manage season dates and rosters.</p></div>
+  <div class="card"><b>People & roles</b><p class="muted" style="font-size:13px">Manage staff access, player registrations and guardian contacts where appropriate.</p></div>
+  <div class="card"><b>Club operations</b><p class="muted" style="font-size:13px">Coordinate schedules, facilities, announcements and club-wide reports.</p></div>
+ </div>
+ <p class="notice" style="margin-top:14px">Realistic boundary: this demo illustrates the director's workflow only. It does not yet manage payments, federation registrations, contracts, facility bookings or real user permissions. Those integrations should be considered only after learning the club's actual processes.</p>
+</section>
+<section id="talent" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">International scouting workspace</div><h1 class="h1">Global talent detection</h1><p class="sub">A structured way to receive, organise and evaluate player profiles from different regions. It supports human scouting decisions; it does not automatically discover or certify talent worldwide.</p></div><button class="btn" onclick="openTalent()">＋ Add player profile</button></div>
+ <div class="grid stats">
+  <div class="card"><div class="statlabel">Profiles in demo database</div><div class="statnum" id="talentCount">6</div><div class="statnote">Fictional sample profiles</div></div>
+  <div class="card"><div class="statlabel">Countries represented</div><div class="statnum">5</div><div class="statnote">Example only</div></div>
+  <div class="card"><div class="statlabel">Shortlisted</div><div class="statnum" id="shortCount">2</div><div class="statnote">For further review</div></div>
+  <div class="card"><div class="statlabel">Awaiting review</div><div class="statnum" id="reviewCount">2</div><div class="statnote">Needs scout attention</div></div>
+ </div>
+ <div class="notice">How it could work: players, families, agents or trusted scouts submit a profile and video with the required permissions. A club scout reviews the information, adds an evaluation and decides whether to contact the player.</div>
+ <div class="sectionrow"><h2>Scouting pipeline</h2><span>Click a profile for details</span></div>
+ <div class="card tablewrap"><table class="table"><thead><tr><th>Player</th><th>Country</th><th>Age group</th><th>Position</th><th>Height</th><th>Review status</th><th></th></tr></thead><tbody id="talentRows"></tbody></table></div>
+ <div class="sectionrow"><h2>What a player profile could contain</h2><span>Only information relevant to evaluation</span></div>
+ <div class="grid teamgrid">
+  <div class="card"><b>Player basics</b><p class="muted" style="font-size:13px">Name, age group, country, position, height and playing history.</p></div>
+  <div class="card"><b>Evidence</b><p class="muted" style="font-size:13px">Short match or training clips, competition level and verified references.</p></div>
+  <div class="card"><b>Scout evaluation</b><p class="muted" style="font-size:13px">Technical observations, physical context, potential fit and next action.</p></div>
+ </div>
+ <p class="notice" style="margin-top:14px">Important safeguards: for minors, obtain appropriate parent/guardian consent before collecting profiles or videos. Limit who can view personal information, avoid public exposure of private data, define retention and deletion rules, and check eligibility/transfer rules before any recruitment decision. Video is evidence for human review, not an automatic verdict.</p>
+</section>
+<section id="attendance" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">Session register</div><h1 class="h1">Attendance</h1><p class="sub">A coach can mark attendance quickly after training. A future version could also support player QR check-in, followed by coach verification.</p></div><button class="btn" onclick="saveAttendance()">Save register</button></div>
+ <div class="card"><div class="sectionrow" style="margin-top:0"><h2>U18 Women · Training session</h2><span>Sample · 24 Nov 2026 · 18:00</span></div><div class="kpis"><div class="kpi"><b id="presentCount">12</b><small>Present</small></div><div class="kpi"><b id="absentCount">2</b><small>Absent</small></div><div class="kpi"><b>86%</b><small>Attendance rate</small></div></div><div class="sectionrow"><h2>Player register</h2><span>Change status for this demo</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Player</th><th>Position</th><th>Attendance</th></tr></thead><tbody id="attendanceRows"></tbody></table></div></div>
+ <p class="notice" style="margin-top:14px">Privacy note: check-in should record only the session attendance. If QR or location verification is introduced, use clear consent and avoid continuous location tracking.</p>
+</section>
+<section id="training" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">Capture training performance</div><h1 class="h1">Training centre</h1><p class="sub">Record a drill and a few key numbers. The system calculates simple percentages so coaches do not need to do the maths manually.</p></div><button class="btn" onclick="openTraining()">＋ Add drill record</button></div>
+ <div class="grid cols">
+  <div class="card"><div class="sectionrow" style="margin-top:0"><h2>Latest drill records</h2><span>Fictional sample entries</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Player</th><th>Drill</th><th>Successful</th><th>Rate</th></tr></thead><tbody id="trainingRows"></tbody></table></div></div>
+  <div class="card"><h2 style="font-size:16px;margin-top:0">Example: serve drill</h2><p class="muted" style="font-size:13px">The coach enters attempts and successful serves. VolleySphere calculates the success rate.</p><div class="kpis"><div class="kpi"><b>8 / 10</b><small>Successful serves</small></div><div class="kpi"><b>80%</b><small>Success rate</small></div></div><div class="bar" style="margin-top:18px;height:10px"><i style="width:80%"></i></div><p class="muted" style="font-size:12px;margin-top:15px">Next step: choose a player or a drill first, then record serve, reception, attack, block or defence outcomes.</p></div>
+ </div>
+ <p class="notice" style="margin-top:14px">Keep it practical: start with 1–2 indicators per drill. Coaches can add detail only when it is useful, rather than entering every statistic for every exercise.</p>
+</section>
+<section id="matches" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">Match performance</div><h1 class="h1">Match centre</h1><p class="sub">Capture key actions during the match or enter totals after each set. The coach remains in control of corrections.</p></div><button class="btn" onclick="openMatch()">＋ Add match action</button></div>
+ <div class="grid cols">
+  <div class="card"><div class="sectionrow" style="margin-top:0"><h2>Example match summary</h2><span>Fictional match</span></div><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="muted" style="font-size:12px">Serie C Women · 22 Nov 2026</div><h2 style="font-size:21px;margin:5px 0">Home team 3 – 1 Example Volley</h2><span class="tag">Won</span></div><div style="font-size:28px;font-weight:850">3:1</div></div><div class="sectionrow"><h2>Team indicators</h2><span>Illustrative only</span></div><div class="barrow"><span>Attack success</span><div class="bar"><i style="width:46%"></i></div><b>46%</b></div><div class="barrow"><span>Serve success</span><div class="bar"><i style="width:61%"></i></div><b>61%</b></div><div class="barrow"><span>Reception positive</span><div class="bar"><i style="width:58%"></i></div><b>58%</b></div></div>
+  <div class="card"><h2 style="font-size:16px;margin-top:0">Quick action log</h2><p class="muted" style="font-size:13px">A small example of how an event might be recorded during a match.</p><div class="kpis"><div class="kpi"><b id="matchEvents">3</b><small>Actions logged</small></div><div class="kpi"><b>Set 2</b><small>Current set</small></div></div><div id="matchLog" style="margin-top:14px;font-size:13px"></div></div>
+ </div>
+ <p class="notice" style="margin-top:14px">AI video analysis is not part of this working demo. It could be explored later: AI suggests actions from video, and a coach confirms or corrects them before they enter official statistics.</p>
+</section>
+<section id="physical" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">Player development</div><h1 class="h1">Physical assessment</h1><p class="sub">Keep official test results separate from daily player wellness feedback. Compare each player with their own previous results.</p></div><button class="btn" onclick="openPhysical()">＋ Add test result</button></div>
+ <div class="card"><div class="sectionrow" style="margin-top:0"><h2>Recent assessment results</h2><span>Sample records</span></div><div class="tablewrap"><table class="table"><thead><tr><th>Player</th><th>Test</th><th>Result</th><th>Date</th><th>Recorded by</th></tr></thead><tbody id="physicalRows"></tbody></table></div></div>
+ <p class="notice" style="margin-top:14px">Example calculation: jump height = jump reach (313 cm) − standing reach (245 cm) = 68 cm. These sample values are fictional. Limit access to sensitive player and wellness information, especially for minors.</p>
+</section>
+<section id="reports" class="page hidden">
+ <div class="pagehead"><div><div class="eyebrow">From records to decisions</div><h1 class="h1">Reports</h1><p class="sub">A simple snapshot for a coach or director. Reports should help ask better questions, not automatically judge players.</p></div><button class="btn secondary" onclick="toast('Export to PDF/Excel can be added after the data model is agreed.')">Export report</button></div>
+ <div class="grid stats"><div class="card"><div class="statlabel">Team attendance</div><div class="statnum">88%</div><div class="statnote">Last 4 weeks · demo</div></div><div class="card"><div class="statlabel">Serve success</div><div class="statnum">71%</div><div class="statnote">Training sample · demo</div></div><div class="card"><div class="statlabel">Attack success</div><div class="statnum">46%</div><div class="statnote">Last match · demo</div></div><div class="card"><div class="statlabel">Jump test trend</div><div class="statnum">+3 cm</div><div class="statnote">Example player · demo</div></div></div>
+ <div class="card"><h2 style="font-size:16px;margin-top:0">What a coach can learn</h2><ul style="padding-left:19px;color:var(--muted);line-height:1.9"><li>Which players have missed several sessions?</li><li>Is serve accuracy improving across recent training sessions?</li><li>Which match skills produced the most errors?</li><li>How are physical test results changing over time?</li></ul><p class="muted" style="font-size:12px">A real report requires consistent definitions, enough observations and coach context. A percentage alone is not a full performance evaluation.</p></div>
+</section>
+</div>
+
+<footer class="sitefooter"><div class="footerinner">
+ <div><div class="footerbrand">VolleySphere</div><p>An independent volleyball club management and performance platform concept. Designed to connect club operations, coaching workflows, player development and talent scouting in one clear environment.</p></div>
+ <div class="footerlinks"><a href="#" onclick="go('overview');return false">Overview</a><a href="#" onclick="go('managementPortal');return false">Management Portal</a><a href="#" onclick="go('staffPortal');return false">Technical Staff Portal</a><a href="#" onclick="go('playerPortal');return false">Player Portal</a><a href="#" onclick="go('reports');return false">Reports</a></div>
+ </div><div class="footerbottom"><span>© 2026 VolleySphere · Independent concept prototype</span><span>Fictional sample data · Not connected to a club system</span></div></footer>
+
+</main>
+</div>
+<div id="modalRoot"></div><div id="toastRoot"></div>
+<script>
+const players=[
+ {name:"Giulia Rossi",team:"Serie C Women",pos:"Setter",num:7,status:"Active"},
+ {name:"Martina Bianchi",team:"Serie C Women",pos:"Outside hitter",num:12,status:"Active"},
+ {name:"Sara Conti",team:"Serie C Women",pos:"Middle blocker",num:4,status:"Active"},
+ {name:"Elena Moretti",team:"Under 18 Women",pos:"Libero",num:2,status:"Active"},
+ {name:"Alice Ferrari",team:"Under 18 Women",pos:"Opposite",num:9,status:"Active"},
+ {name:"Chiara Ricci",team:"Under 18 Women",pos:"Outside hitter",num:11,status:"Active"},
+ {name:"Sofia Galli",team:"Under 18 Women",pos:"Setter",num:5,status:"Active"},
+ {name:"Beatrice Costa",team:"Under 18 Women",pos:"Middle blocker",num:8,status:"Active"},
+ {name:"Noemi Villa",team:"Under 16 Women",pos:"Outside hitter",num:10,status:"Active"},
+ {name:"Emma Fontana",team:"Under 16 Women",pos:"Libero",num:1,status:"Active"}
+];
+let training=[
+ {player:"Elena Moretti",drill:"Serve to zone 1",ok:8,total:10},
+ {player:"Alice Ferrari",drill:"Serve to zone 5",ok:6,total:10},
+ {player:"Chiara Ricci",drill:"Attack line shot",ok:7,total:9},
+ {player:"Sofia Galli",drill:"Target setting",ok:16,total:20}
+];
+let physical=[
+ {player:"Elena Moretti",test:"Approach jump",result:"68 cm",date:"20 Nov 2026",by:"Coach"},
+ {player:"Alice Ferrari",test:"Standing reach",result:"228 cm",date:"20 Nov 2026",by:"Coach"},
+ {player:"Chiara Ricci",test:"10 m sprint",result:"2.1 s",date:"20 Nov 2026",by:"Physical trainer"}
+];
+let talent=[
+ {name:"Mila Novak",country:"Croatia",age:"U18",position:"Setter",height:"178 cm",status:"Shortlisted",note:"Good decision-making in submitted match clips. Invite for a live evaluation."},
+ {name:"Sofia Martin",country:"Spain",age:"U16",position:"Outside hitter",height:"181 cm",status:"New submission",note:"Profile received. Video and competition level need review."},
+ {name:"Emma Weber",country:"Germany",age:"U18",position:"Libero",height:"169 cm",status:"Under review",note:"Promising reception movement in the sample clip; request more context."},
+ {name:"Ana Petrović",country:"Serbia",age:"U18",position:"Middle blocker",height:"187 cm",status:"Shortlisted",note:"Physical profile may fit the role. Validate blocking and movement in person."},
+ {name:"Lucia Rossi",country:"Italy",age:"U16",position:"Opposite",height:"179 cm",status:"New submission",note:"Awaiting coach review."},
+ {name:"Nora Jensen",country:"Denmark",age:"U18",position:"Outside hitter",height:"183 cm",status:"Not proceeding",note:"Current profile does not match this team's recruitment needs."}
+];
+let events=["#7 Giulia Rossi · Serve in"," #12 Martina Bianchi · Attack point"," #4 Sara Conti · Block touch"];
+function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(page).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page || (['managementPortal','staffPortal','playerPortal'].includes(page) && b.dataset.page===page)));const crumb=document.getElementById('crumb');if(crumb)crumb.textContent=page.replace('Portal',' PORTAL').replace(/([A-Z])/g,' $1').toUpperCase().trim();window.scrollTo(0,0)}
+document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(b)go(b.dataset.page)});
+function toast(msg){let r=document.getElementById('toastRoot');r.innerHTML='<div class="toast">'+msg+'</div>';setTimeout(()=>r.innerHTML='',2600)}
+function teamDetail(team){go('teams');document.getElementById('playerTitle').textContent=team+' · players';renderPlayers(team)}
+function renderPlayers(team=''){document.getElementById('players').innerHTML=players.filter(p=>!team||p.team===team).map(p=>`<tr><td class="name">${p.name}</td><td>${p.team}</td><td>${p.pos}</td><td>#${p.num}</td><td><span class="tag">${p.status}</span></td></tr>`).join('')}
+function renderTeams(){document.getElementById('teamCards').innerHTML=['Serie C Women','Under 18 Women','Under 16 Women'].map(t=>`<div class="card clickcard" onclick="teamDetail('${t}')"><div class="team"><div class="teamicon">🏐</div><div><strong>${t}</strong><small>${players.filter(p=>p.team===t).length} sample players · Open directory →</small></div></div></div>`).join('')}
+function renderAttendance(){let list=players.filter(p=>p.team==='Under 18 Women');document.getElementById('attendanceRows').innerHTML=list.map((p,i)=>`<tr><td class="name">${p.name}</td><td>${p.pos}</td><td><select onchange="attendanceChange(this)" data-state="${i}" style="padding:7px;border:1px solid var(--line);border-radius:8px"><option ${i<5?'selected':''}>Present</option><option ${i===5?'selected':''}>Absent</option><option>Late</option><option>Excused</option></select></td></tr>`).join('');updateAttendance()}
+function attendanceChange(){updateAttendance()}function updateAttendance(){let vals=[...document.querySelectorAll('#attendanceRows select')].map(x=>x.value);document.getElementById('presentCount').textContent=vals.filter(x=>x==='Present'||x==='Late').length;document.getElementById('absentCount').textContent=vals.filter(x=>x==='Absent').length}
+function saveAttendance(){toast('Demo only: register updated on this page. No data has been sent or saved to a server.')}
+function renderTraining(){document.getElementById('trainingRows').innerHTML=training.map(t=>`<tr><td class="name">${t.player}</td><td>${t.drill}</td><td>${t.ok}/${t.total}</td><td><b>${Math.round(t.ok/t.total*100)}%</b></td></tr>`).join('')}
+function renderPhysical(){document.getElementById('physicalRows').innerHTML=physical.map(t=>`<tr><td class="name">${t.player}</td><td>${t.test}</td><td><b>${t.result}</b></td><td>${t.date}</td><td>${t.by}</td></tr>`).join('')}
+function renderTalent(){let el=document.getElementById('talentRows');if(!el)return;el.innerHTML=talent.map((t,i)=>`<tr><td class="name">${t.name}</td><td>${t.country}</td><td>${t.age}</td><td>${t.position}</td><td>${t.height}</td><td><span class="tag ${t.status==='New submission'?'amber':t.status==='Not proceeding'?'gray':''}">${t.status}</span></td><td><button class="btn soft" style="padding:6px 9px" onclick="talentDetail(${i})">Review</button></td></tr>`).join('');document.getElementById('talentCount').textContent=talent.length;document.getElementById('shortCount').textContent=talent.filter(x=>x.status==='Shortlisted').length;document.getElementById('reviewCount').textContent=talent.filter(x=>x.status==='New submission'||x.status==='Under review').length}
+function talentDetail(i){let t=talent[i];modal('Scouting profile · '+t.name,`<div class="kpis"><div class="kpi"><b>${t.country}</b><small>Country</small></div><div class="kpi"><b>${t.age}</b><small>Age group</small></div><div class="kpi"><b>${t.height}</b><small>Height · submitted</small></div></div><p><b>Position:</b> ${t.position}</p><p><b>Current status:</b> ${t.status}</p><p><b>Scout note:</b> ${t.note}</p><div class="notice">Video: sample placeholder only — no actual player video is included. A real submission should include consent and controlled access.</div><div class="field" style="margin-top:12px"><label>Update review status</label><select id="talentStatus"><option ${t.status==='New submission'?'selected':''}>New submission</option><option ${t.status==='Under review'?'selected':''}>Under review</option><option ${t.status==='Shortlisted'?'selected':''}>Shortlisted</option><option ${t.status==='Not proceeding'?'selected':''}>Not proceeding</option></select></div><div class="field" style="margin-top:10px"><label>Scout note</label><textarea id="talentNote" rows="3">${t.note}</textarea></div>`,`saveTalent(${i})`)}
+function saveTalent(i){talent[i].status=document.getElementById('talentStatus').value;talent[i].note=document.getElementById('talentNote').value;renderTalent();closeModal();toast('Scouting review updated in this demo only.')}
+function openTalent(){modal('Add a scouting profile',`<div class="formgrid"><div class="field"><label>Player name / reference</label><input id="newTalentName" placeholder="e.g. Player submitted by scout"></div><div class="field"><label>Country</label><input id="newTalentCountry" placeholder="Country"></div><div class="field"><label>Age group</label><select id="newTalentAge"><option>U16</option><option>U18</option><option>U20</option><option>Senior</option></select></div><div class="field"><label>Position</label><select id="newTalentPos"><option>Setter</option><option>Outside hitter</option><option>Opposite</option><option>Middle blocker</option><option>Libero</option></select></div><div class="field"><label>Height (optional)</label><input id="newTalentHeight" placeholder="e.g. 180 cm"></div><div class="field"><label>Submission status</label><select id="newTalentStatus"><option>New submission</option><option>Under review</option></select></div></div><p class="muted" style="font-size:12px">Do not enter real minors' personal details in this demonstration. This form is for fictional sample data only.</p>`,`addTalent()`)}
+function addTalent(){let name=document.getElementById('newTalentName').value.trim(),country=document.getElementById('newTalentCountry').value.trim();if(!name||!country){toast('Please enter a name/reference and country.');return}talent.unshift({name,country,age:document.getElementById('newTalentAge').value,position:document.getElementById('newTalentPos').value,height:document.getElementById('newTalentHeight').value||'Not provided',status:document.getElementById('newTalentStatus').value,note:'New profile — scout review required.'});renderTalent();closeModal();toast('Profile added to this demo only.')}
+function renderEvents(){document.getElementById('matchLog').innerHTML=events.map(e=>`<div style="padding:9px 0;border-bottom:1px solid var(--line)">${e}</div>`).join('');document.getElementById('matchEvents').textContent=events.length}
+function modal(title,body,save){document.getElementById('modalRoot').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modalhead"><h3>${title}</h3><button class="x" onclick="closeModal()">✕</button></div>${body}<div class="actions" style="margin-top:18px"><button class="btn" onclick="${save}">Add to demo</button><button class="btn secondary" onclick="closeModal()">Cancel</button></div></div></div>`}
+function closeModal(){document.getElementById('modalRoot').innerHTML=''}
+function openTraining(){modal('Add a training drill record',`<div class="formgrid"><div class="field"><label>Player</label><select id="tPlayer">${players.filter(p=>p.team==='Under 18 Women').map(p=>`<option>${p.name}</option>`).join('')}</select></div><div class="field"><label>Drill / skill</label><select id="tDrill"><option>Serve to target</option><option>Reception quality</option><option>Attack success</option><option>Block touch</option><option>Defence dig</option><option>Setting accuracy</option></select></div><div class="field"><label>Successful actions</label><input id="tOk" type="number" min="0" value="8"></div><div class="field"><label>Total attempts</label><input id="tTotal" type="number" min="1" value="10"></div><div class="field full"><label>Coach note (optional)</label><input id="tNote" placeholder="e.g. Focus on consistent toss"></div></div>`,`addTraining()`)}
+function addTraining(){let ok=+document.getElementById('tOk').value,total=+document.getElementById('tTotal').value;if(!total||ok>total||ok<0){toast('Please check the attempts and success values.');return}training.unshift({player:document.getElementById('tPlayer').value,drill:document.getElementById('tDrill').value,ok,total});renderTraining();document.getElementById('trainingCount').textContent=18+training.length-4;closeModal();toast('Added to this demo session. Not saved to a server.')}
+function openMatch(){modal('Log a match action',`<div class="formgrid"><div class="field"><label>Player</label><select id="mPlayer">${players.filter(p=>p.team==='Serie C Women').map(p=>`<option>#${p.num} ${p.name}</option>`).join('')}</select></div><div class="field"><label>Skill</label><select id="mSkill"><option>Serve</option><option>Reception</option><option>Attack</option><option>Block</option><option>Defence</option><option>Setting</option></select></div><div class="field"><label>Outcome</label><select id="mOutcome"><option>Successful</option><option>Error</option><option>Positive</option><option>Negative</option></select></div><div class="field"><label>Set</label><select id="mSet"><option>Set 1</option><option>Set 2</option><option>Set 3</option><option>Set 4</option><option>Set 5</option></select></div></div>`,`addMatch()`)}
+function addMatch(){events.unshift(document.getElementById('mPlayer').value+' · '+document.getElementById('mSkill').value+' · '+document.getElementById('mOutcome').value+' ('+document.getElementById('mSet').value+')');renderEvents();closeModal();toast('Match action added to this demo. Not saved to a server.')}
+function openPhysical(){modal('Add a physical test result',`<div class="formgrid"><div class="field"><label>Player</label><select id="pPlayer">${players.map(p=>`<option>${p.name}</option>`).join('')}</select></div><div class="field"><label>Test</label><select id="pTest"><option>Approach jump</option><option>Standing reach</option><option>10 m sprint</option><option>Agility test</option></select></div><div class="field"><label>Result</label><input id="pResult" placeholder="e.g. 68 cm"></div><div class="field"><label>Recorded by</label><select id="pBy"><option>Coach</option><option>Physical trainer</option></select></div></div>`,`addPhysical()`)}
+function addPhysical(){if(!document.getElementById('pResult').value.trim()){toast('Please enter a test result.');return}physical.unshift({player:document.getElementById('pPlayer').value,test:document.getElementById('pTest').value,result:document.getElementById('pResult').value,date:"25 Nov 2026",by:document.getElementById('pBy').value});renderPhysical();closeModal();toast('Test result added to this demo. Not saved to a server.')}
+
+const uiText={
+ en:{navOverview:"Overview",navManagement:"Management Portal",navStaff:"Technical Staff Portal",navPlayer:"Player Portal",workspace:"VOLLEYSPHERE",demoData:"CONCEPT DEMO",language:"Language",signIn:"Sign in",welcome:"Welcome to VolleySphere",explore:"Explore your portal",choose:"Select a role to understand its workspace",purpose:"OUR PURPOSE",purposeTitle:"Bringing every part of the volleyball journey together",portalManagement:"Management Portal",portalStaff:"Technical Staff Portal",portalPlayer:"Player Portal"},
+ it:{navOverview:"Panoramica",navManagement:"Portale Direzione",navStaff:"Portale Staff Tecnico",navPlayer:"Portale Atleta",workspace:"VOLLEYSPHERE",demoData:"DEMO CONCETTUALE",language:"Lingua",signIn:"Accedi",welcome:"Benvenuti in VolleySphere",explore:"Esplora il tuo portale",choose:"Scegli un ruolo per scoprire il relativo spazio di lavoro",purpose:"IL NOSTRO OBIETTIVO",purposeTitle:"Connettere ogni aspetto del percorso nella pallavolo",portalManagement:"Portale Direzione",portalStaff:"Portale Staff Tecnico",portalPlayer:"Portale Atleta"}
+};
+function setLanguage(lang){
+ const d=uiText[lang]||uiText.en;
+ document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k]});
+ const welcome=document.querySelector('#overview .h1');if(welcome)welcome.textContent=d.welcome;
+ const explore=document.querySelector('#overview .sectionrow h2');if(explore)explore.textContent=d.explore;
+ const choose=document.querySelector('#overview .sectionrow span');if(choose)choose.textContent=d.choose;
+ const purposeEyebrow=document.querySelector('#overview .card[style*="linear-gradient"] .eyebrow');if(purposeEyebrow)purposeEyebrow.textContent=d.purpose;
+ const purposeTitle=document.querySelector('#overview .card[style*="linear-gradient"] h2');if(purposeTitle)purposeTitle.textContent=d.purposeTitle;
+ const titles=document.querySelectorAll('.portalcard h2');if(titles.length===3){titles[0].textContent=d.portalManagement;titles[1].textContent=d.portalStaff;titles[2].textContent=d.portalPlayer}
+}
+function openLogin(){
+ document.getElementById('modalRoot').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modalhead"><h3>Secure sign-in</h3><button class="x" onclick="closeModal()">✕</button></div><div class="notice"><b>Secure account access is planned for the next development phase.</b><br>This public concept demo does not yet have user accounts, passwords or role-based permissions. No login details are collected here.</div><p class="muted" style="font-size:13px;margin-top:14px">When implemented, club directors, technical staff and players will sign in and be directed to the workspace allowed by their role.</p><div class="actions" style="margin-top:18px"><button class="btn" onclick="closeModal()">Continue exploring</button></div></div></div>`;
+}
+
+
+/* V5: practical portal cards with real destinations inside the prototype */
+const portalActions={
+ managementPortal:[
+ ["▦","Teams and seasons","Organise squads, seasons and coaching assignments.","teams"],
+ ["👥","Players and registrations","Open the player directory and review team membership.","teams"],
+ ["🧑‍🏫","Staff and roles","Coordinate coaches and staff responsibilities.","club"],
+ ["📅","Club operations","Review teams, operational tasks and club-wide activity.","club"],
+ ["📊","Club reports","Bring attendance, performance and development information together.","reports"]],
+ staffPortal:[
+ ["✓","Take attendance","Open a team session register and record who is present, late or absent.","attendance"],
+ ["🏐","Record training","Enter drill outcomes and let VolleySphere calculate success rates.","training"],
+ ["🏆","Record match actions","Log serves, receptions, attacks, blocks and other match events.","matches"],
+ ["💪","Assess physical development","Record tests and compare results over time.","physical"],
+ ["🔎","Review talent profiles","Organise scouting submissions and record human evaluations.","talent"],
+ ["📈","Prepare performance reports","Review team and player indicators to support coaching decisions.","reports"]],
+ playerPortal:[
+ ["📲","Check in to training","See how a digital session check-in could work in the attendance demo.","attendance"],
+ ["🗓️","My schedule","Explore team activities. A personal calendar is a future feature.","teams"],
+ ["🏐","My team and profile","Find the sample player directory and team information.","teams"],
+ ["📊","My performance feedback","Explore example training and match records reviewed by staff.","reports"],
+ ["💪","My physical progress","View example physical assessment records and development measures.","physical"],
+ ["🎯","My development goals","Explore assessment information used to support development discussions.","physical"]]
+};
+const itCards={
+ "Teams and seasons":["Squadre e stagioni","Organizza squadre, stagioni e assegnazioni degli allenatori."],
+ "Players and registrations":["Atleti e iscrizioni","Apri l'elenco degli atleti e consulta le appartenenze alle squadre."],
+ "Staff and roles":["Staff e ruoli","Coordina allenatori, staff tecnico e responsabilità."],
+ "Club operations":["Gestione del club","Consulta squadre, attività operative e attività del club."],
+ "Club reports":["Report del club","Riunisci dati su presenze, prestazioni e sviluppo degli atleti."],
+ "Take attendance":["Registra le presenze","Apri il registro di una sessione e indica chi è presente, in ritardo o assente."],
+ "Record training":["Registra l'allenamento","Inserisci i risultati degli esercizi e calcola le percentuali di riuscita."],
+ "Record match actions":["Registra le azioni di gara","Registra battute, ricezioni, attacchi, muri e altre azioni di gara."],
+ "Assess physical development":["Valuta lo sviluppo fisico","Registra i test e confronta i risultati nel tempo."],
+ "Review talent profiles":["Esamina i profili dei talenti","Organizza le candidature di scouting e registra le valutazioni."],
+ "Prepare performance reports":["Prepara report sulle prestazioni","Consulta gli indicatori di squadra e atleta per supportare le decisioni tecniche."],
+ "Check in to training":["Check-in all'allenamento","Scopri come potrebbe funzionare il check-in digitale nella demo delle presenze."],
+ "My schedule":["Il mio calendario","Consulta le attività della squadra. Un calendario personale sarà una funzionalità futura."],
+ "My team and profile":["La mia squadra e il mio profilo","Consulta l'elenco dimostrativo degli atleti e le informazioni della squadra."],
+ "My performance feedback":["Il mio feedback sulle prestazioni","Consulta esempi di dati di allenamento e gara verificati dallo staff."],
+ "My physical progress":["I miei progressi fisici","Visualizza esempi di valutazioni fisiche e indicatori di sviluppo."],
+ "My development goals":["I miei obiettivi di sviluppo","Consulta le valutazioni utili per definire gli obiettivi di sviluppo."]
+};
+function renderPortalActionCards(){
+ const it=document.documentElement.lang==="it";
+ const labels=it?{
+  management:["Cosa puoi fare con il Portale Direzione?","Uno spazio centrale per dirigenti e amministratori per coordinare squadre, persone, iscrizioni e attività del club."],
+  staff:["Cosa puoi fare con il Portale Staff Tecnico?","Strumenti pratici per allenatori e staff autorizzato per organizzare le sessioni, registrare le prestazioni e seguire lo sviluppo degli atleti."],
+  player:["Cosa possono fare gli atleti nel proprio portale?","Uno spazio personale per effettuare il check-in, seguire le attività della squadra e comprendere i propri progressi con il supporto dello staff tecnico."],
+  open:"APRI LO SPAZIO →"
+ }:{
+  management:["What can the Management Portal help you do?","A central workspace for club directors and administrators to coordinate teams, people, registrations and the organisation as a whole."],
+  staff:["What can the Technical Staff Portal help you do?","Practical tools for coaches and authorised staff to organise sessions, record performance and support player development."],
+  player:["What can players do in their portal?","A personal space to check in, follow team activities and understand progress with guidance from the coaching staff."],
+  open:"OPEN WORKSPACE →"
+ };
+ ["managementPortal","staffPortal","playerPortal"].forEach(id=>{
+  const section=document.getElementById(id),grid=section&&section.querySelector(".featuregrid");
+  if(!grid)return;
+  const key=id==="managementPortal"?"management":id==="staffPortal"?"staff":"player";
+  const h=section.querySelector(".card>h2"),p=section.querySelector(".card>.muted");
+  if(h)h.textContent=labels[key][0]; if(p)p.textContent=labels[key][1];
+  grid.innerHTML=portalActions[id].map(([icon,title,desc,target])=>{
+   const t=it?(itCards[title]||[title,desc]):[title,desc];
+   return `<div class="feature actioncard" role="button" tabindex="0" onclick="go('${target}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('${target}')}"><div class="actionicon">${icon}</div><b>${t[0]}</b><p>${t[1]}</p><span class="actionlink">${labels.open}</span></div>`;
+  }).join("");
+ });
+}
+const translations={
+ "A connected volleyball environment":"Un ambiente integrato per la pallavolo",
+ "Welcome to VolleySphere":"Benvenuti in VolleySphere",
+ "One connected platform for club operations, coaching, performance and player development. VolleySphere aims to make the everyday work of a volleyball club easier to organise, understand and improve.":"Un'unica piattaforma per la gestione del club, il lavoro tecnico, le prestazioni e lo sviluppo degli atleti. VolleySphere vuole rendere più semplice organizzare, comprendere e migliorare le attività quotidiane di una società di pallavolo.",
+ "Our purpose":"Il nostro obiettivo",
+ "Bringing every part of the volleyball journey together":"Connettere ogni aspetto del percorso nella pallavolo",
+ "From managing teams and coordinating staff to recording training and match performance, following physical development and reviewing emerging talent, VolleySphere is designed to connect useful information in one clear, user-friendly space. Different people have different responsibilities, so each role has its own dedicated portal.":"Dalla gestione delle squadre e del personale alla registrazione delle prestazioni in allenamento e in gara, dal monitoraggio dello sviluppo fisico alla valutazione di nuovi talenti: VolleySphere collega le informazioni utili in un unico ambiente chiaro e intuitivo. Ogni ruolo dispone di uno spazio dedicato.",
+ "Explore your portal":"Esplora il tuo portale","Select a role to understand its workspace":"Scegli un ruolo per scoprire il relativo spazio di lavoro",
+ "How VolleySphere connects the club":"Come VolleySphere connette il club","One shared environment":"Un unico ambiente condiviso",
+ "Club operations":"Gestione del club","Teams, staff, registrations and coordination.":"Squadre, staff, iscrizioni e coordinamento.",
+ "Training and matches":"Allenamenti e gare","Attendance, skill records and match events.":"Presenze, abilità tecniche e azioni di gara.",
+ "Player development":"Sviluppo degli atleti","Physical assessments, progress and insights.":"Valutazioni fisiche, progressi e analisi.",
+ "Management Portal":"Portale Direzione","Technical Staff Portal":"Portale Staff Tecnico","Player Portal":"Portale Atleta",
+ "Club leadership":"Direzione del club","Coaching and performance":"Staff tecnico e prestazioni","Individual development":"Sviluppo individuale",
+ "For club directors and administrators who coordinate the organisation, teams, people and club-wide activity.":"Per dirigenti e amministratori che coordinano l'organizzazione, le squadre, le persone e le attività del club.",
+ "For coaches, assistant coaches, physical trainers and scouts who plan activities and support athlete development.":"Per allenatori, assistenti, preparatori atletici e scout che pianificano le attività e supportano lo sviluppo degli atleti.",
+ "For registered players who want to follow their schedule, attendance, performance and development over time.":"Per gli atleti registrati che desiderano seguire calendario, presenze, prestazioni e progressi nel tempo.",
+ "Explore management →":"Esplora la direzione →","Explore technical staff →":"Esplora lo staff tecnico →","Explore player area →":"Esplora l'area atleta →",
+ "Prototype note:":"Nota sul prototipo:","Fictional sample data · Not connected to a club system":"Dati fittizi · Non collegato al sistema di un club",
+ "A central workspace for club directors and administrators to understand and coordinate the organisation as a whole.":"Uno spazio centrale per dirigenti e amministratori, pensato per comprendere e coordinare l'intera organizzazione.",
+ "A practical workspace for the people who plan training, guide athletes, evaluate performance and support team development.":"Uno spazio operativo per chi pianifica gli allenamenti, guida gli atleti, valuta le prestazioni e sostiene lo sviluppo della squadra.",
+ "A personal space where players can understand their activities, follow their progress and stay connected with their team.":"Uno spazio personale in cui gli atleti possono consultare le attività, seguire i progressi e restare in contatto con la propria squadra.",
+ "What can management do?":"Cosa può fare la Direzione?","What can technical staff do?":"Cosa può fare lo Staff Tecnico?","What could players access?":"A cosa possono accedere gli atleti?",
+ "← Back to overview":"← Torna alla panoramica","Back to overview":"Torna alla panoramica",
+ "Teams and players":"Squadre e atleti","Club & team management":"Gestione del club e delle squadre",
+ "Global talent detection":"Scouting internazionale","Attendance":"Presenze","Training centre":"Centro allenamento","Match centre":"Centro gara","Physical assessment":"Valutazione fisica","Reports":"Report",
+ "Save register":"Salva il registro","Player register":"Registro atleti","Change status for this demo":"Modifica lo stato nella demo",
+ "Present":"Presente","Absent":"Assente","Late":"In ritardo","Excused":"Giustificato",
+ "Sign in":"Accedi","Language":"Lingua","CONCEPT DEMO":"DEMO CONCETTUALE","DEMO DATA":"DATI DEMO",
+ "Secure sign-in":"Accesso sicuro","Continue exploring":"Continua a esplorare",
+ "Open it":"Apri","Add player":"Aggiungi atleta","Create team":"Crea squadra","Add test result":"Aggiungi risultato test","Add drill record":"Aggiungi esercizio","Add match action":"Aggiungi azione di gara","Export report":"Esporta report",
+ "Player":"Atleta","Team":"Squadra","Position":"Ruolo","Status":"Stato","Height":"Altezza","Date":"Data","Recorded by":"Registrato da",
+ "A coach can mark attendance quickly after training. A future version could also support player QR check-in, followed by coach verification.":"L'allenatore può registrare rapidamente le presenze al termine dell'allenamento. Una versione futura potrebbe consentire il check-in tramite QR code, con successiva verifica dell'allenatore.",
+ "Record a drill and a few key numbers. The system calculates simple percentages so coaches do not need to do the maths manually.":"Registra un esercizio e alcuni dati essenziali. Il sistema calcola automaticamente le percentuali, evitando calcoli manuali.",
+ "Capture key actions during the match or enter totals after each set. The coach remains in control of corrections.":"Registra le azioni principali durante la gara oppure inserisci i totali al termine di ogni set. L'allenatore mantiene il controllo delle correzioni.",
+ "Keep official test results separate from daily player wellness feedback. Compare each player with their own previous results.":"Mantieni separati i risultati dei test ufficiali dai feedback quotidiani sul benessere. Confronta ogni atleta con i propri risultati precedenti.",
+ "From records to decisions":"Dai dati alle decisioni","A simple snapshot for a coach or director. Reports should help ask better questions, not automatically judge players.":"Una sintesi per allenatori e dirigenti. I report devono aiutare a porre domande migliori, non giudicare automaticamente gli atleti.",
+ "The Management Portal is intended to give club leadership a clear picture of teams, people, registrations and operational activity, helping directors coordinate resources and make informed decisions.":"Il Portale Direzione offre una visione chiara di squadre, persone, iscrizioni e attività operative, aiutando i dirigenti a coordinare le risorse e prendere decisioni consapevoli.",
+ "The Technical Staff Portal brings day-to-day coaching workflows together. Coaches and authorised staff can record activities, review performance and build a clearer picture of player and team progress.":"Il Portale Staff Tecnico riunisce le attività quotidiane di allenatori e staff autorizzato: registrazione delle attività, analisi delle prestazioni e monitoraggio dei progressi di atleti e squadre.",
+ "The Player Portal is designed to make relevant information easy to find, helping each athlete take an active role in their development while keeping personal information appropriately protected.":"Il Portale Atleta rende facilmente accessibili le informazioni utili e aiuta ogni atleta a partecipare attivamente al proprio sviluppo, tutelando i dati personali."
+};
+const nodeOriginals=new WeakMap();
+function translatePage(lang){
+ document.documentElement.lang=lang;
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ let n;
+ while(n=walker.nextNode()){
+  if(!nodeOriginals.has(n))nodeOriginals.set(n,n.nodeValue);
+  const original=nodeOriginals.get(n),trim=original.trim();
+  if(!trim)continue;
+  const value=lang==="it"?(translations[trim]||trim):trim;
+  n.nodeValue=original.replace(trim,value);
+ }
+}
+const translationObserver=new MutationObserver(()=>{if(document.documentElement.lang==="it")translatePage("it")});
+translationObserver.observe(document.body,{childList:true,subtree:true});
+const baseSetLanguage=setLanguage;
+setLanguage=function(lang){baseSetLanguage(lang);translatePage(lang);renderPortalActionCards();};
+const baseOpenLogin=openLogin;
+openLogin=function(){
+ if(document.documentElement.lang!=="it"){baseOpenLogin();return;}
+ document.getElementById('modalRoot').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modalhead"><h3>Accesso sicuro</h3><button class="x" onclick="closeModal()">✕</button></div><div class="notice"><b>L'accesso sicuro agli account è previsto in una fase successiva dello sviluppo.</b><br>Questa demo pubblica non dispone ancora di account, password o autorizzazioni per ruolo. Non vengono raccolte credenziali.</div><p class="muted" style="font-size:13px;margin-top:14px">Quando sarà implementato, dirigenti, staff tecnico e atleti potranno accedere allo spazio previsto dal proprio ruolo.</p><div class="actions" style="margin-top:18px"><button class="btn" onclick="closeModal()">Continua a esplorare</button></div></div></div>`;
+};
+
+renderTeams();renderPlayers();renderAttendance();renderTraining();renderPhysical();renderEvents();renderTalent();
+setLanguage('en');
+</script>
+</body></html>
