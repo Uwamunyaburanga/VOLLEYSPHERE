@@ -147,6 +147,27 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:fle
 @media(max-width:900px){.portalintro .featuregrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.portalintro .featuregrid{grid-template-columns:1fr}.portalintro .feature.actioncard{min-height:150px}}
 
+
+/* Project concept and feedback hub */
+.project-hero{background:linear-gradient(135deg,#17243a 0%,#263f70 100%);color:#fff;border-radius:20px;padding:clamp(22px,4vw,38px);margin-bottom:20px;box-shadow:0 14px 34px rgba(23,36,58,.16)}
+.project-hero .eyebrow{color:#b9caff}.project-hero h1{font-size:clamp(27px,3vw,38px);letter-spacing:-.04em;margin:8px 0 10px}.project-hero p{max-width:850px;color:#e0e8f7;margin:0;line-height:1.7}
+.project-section{margin:24px 0}.project-section>h2{font-size:19px;margin:0 0 7px}.project-lead{color:var(--muted);margin:0 0 15px;max-width:850px}
+.project-portals{grid-template-columns:repeat(3,minmax(0,1fr))}
+.project-portal{padding:18px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#fff,#f7f9ff)}
+.project-portal .picon{width:42px;height:42px;border-radius:13px;background:#eaf0ff;color:var(--blue);display:grid;place-items:center;font-size:21px;margin-bottom:11px}
+.project-portal h3{margin:0 0 6px;font-size:15px}.project-portal p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.project-areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.project-area{display:flex;gap:12px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.project-area .num{flex:0 0 31px;height:31px;border-radius:10px;background:#eaf0ff;color:var(--blue);display:grid;place-items:center;font-weight:850;font-size:13px}
+.project-area b{display:block;margin:1px 0 4px}.project-area p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+.project-scout{border:1px solid #d9e3ff;background:#f3f6ff;border-radius:16px;padding:19px}
+.project-scout h3{margin:0 0 7px}.project-scout p{margin:0;color:#53627c;font-size:13px;line-height:1.65}
+.feedback-panel{background:#17243a;color:#fff;border-radius:18px;padding:clamp(20px,3vw,30px);margin-top:26px}
+.feedback-panel h2{margin:0 0 8px;font-size:22px}.feedback-panel p{color:#d7e1f2;max-width:800px;line-height:1.65;margin:0 0 16px}
+.feedback-actions{display:flex;gap:10px;flex-wrap:wrap}.feedback-actions .btn{background:#fff;color:#17243a;box-shadow:none}.feedback-actions .btn.secondary{background:#293a59;border-color:#53698e;color:#fff}
+.project-note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:15px}
+@media(max-width:750px){.project-portals{grid-template-columns:1fr}.project-areas{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -160,9 +181,9 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:fle
   <button data-page="managementPortal"><span class="ico">▦</span><span data-i18n="navManagement">Management Portal</span></button>
   <button data-page="staffPortal"><span class="ico">🏐</span><span data-i18n="navStaff">Technical Staff Portal</span></button>
   <button data-page="playerPortal"><span class="ico">♙</span><span data-i18n="navPlayer">Player Portal</span></button>
+  <button data-page="projectFeedback"><span class="ico">✦</span><span data-i18n="navProject">Project & Feedback</span></button>
  </nav>
  <div class="topright">
-  <span class="pill" data-i18n="demoData">CONCEPT DEMO</span>
   <label class="language-label" for="languageSelect" data-i18n="language">Language</label>
   <select id="languageSelect" class="language-select" aria-label="Select language" onchange="setLanguage(this.value)"><option value="en">EN</option><option value="it">IT</option></select>
   <button class="loginbtn" onclick="openLogin()" data-i18n="signIn">Sign in</button>
@@ -284,11 +305,75 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:fle
  <div class="grid stats"><div class="card"><div class="statlabel">Team attendance</div><div class="statnum">88%</div><div class="statnote">Last 4 weeks · demo</div></div><div class="card"><div class="statlabel">Serve success</div><div class="statnum">71%</div><div class="statnote">Training sample · demo</div></div><div class="card"><div class="statlabel">Attack success</div><div class="statnum">46%</div><div class="statnote">Last match · demo</div></div><div class="card"><div class="statlabel">Jump test trend</div><div class="statnum">+3 cm</div><div class="statnote">Example player · demo</div></div></div>
  <div class="card"><h2 style="font-size:16px;margin-top:0">What a coach can learn</h2><ul style="padding-left:19px;color:var(--muted);line-height:1.9"><li>Which players have missed several sessions?</li><li>Is serve accuracy improving across recent training sessions?</li><li>Which match skills produced the most errors?</li><li>How are physical test results changing over time?</li></ul><p class="muted" style="font-size:12px">A real report requires consistent definitions, enough observations and coach context. A percentage alone is not a full performance evaluation.</p></div>
 </section>
+
+<section id="projectFeedback" class="page hidden">
+ <div class="project-hero">
+  <div class="eyebrow" data-project-en>INDEPENDENT PROJECT · CONCEPT NOTE</div>
+  <div class="eyebrow" data-project-it>PROGETTO INDIPENDENTE · CONCEPT NOTE</div>
+  <div data-project-en>
+   <h1>Help shape the future of VolleySphere</h1>
+   <p>VolleySphere explores how digital technology could support volleyball club management, technical work and player development. This initial prototype illustrates the idea; the next step is to learn from people who manage and work with teams every day.</p>
+  </div>
+  <div data-project-it>
+   <h1>Aiutaci a sviluppare VolleySphere</h1>
+   <p>VolleySphere esplora come le tecnologie digitali possano supportare la gestione delle società di pallavolo, il lavoro tecnico e lo sviluppo degli atleti. Questo primo prototipo illustra l’idea; il passo successivo è ascoltare chi gestisce e vive ogni giorno le attività di una società.</p>
+  </div>
+ </div>
+
+ <div class="project-section">
+  <div data-project-en><h2>One connected platform, three role-based portals</h2><p class="project-lead">The concept brings together different responsibilities while connecting the information needed to understand the club as a whole.</p></div>
+  <div data-project-it><h2>Un’unica piattaforma, tre portali collegati</h2><p class="project-lead">Il concept riunisce responsabilità diverse e collega le informazioni necessarie per comprendere la società nel suo insieme.</p></div>
+  <div class="grid project-portals">
+   <div class="project-portal"><div class="picon">▦</div><div data-project-en><h3>Management</h3><p>Teams, registrations, staff, schedules and club-wide coordination.</p></div><div data-project-it><h3>Direzione</h3><p>Squadre, iscrizioni, staff, calendari e coordinamento delle attività della società.</p></div></div>
+   <div class="project-portal"><div class="picon">🏐</div><div data-project-en><h3>Technical staff</h3><p>Attendance, training records, match analysis and physical assessments.</p></div><div data-project-it><h3>Staff tecnico</h3><p>Presenze, dati degli allenamenti, analisi delle gare e valutazioni fisiche.</p></div></div>
+   <div class="project-portal"><div class="picon">♙</div><div data-project-en><h3>Player</h3><p>Personal schedule, participation, coach feedback and development progress.</p></div><div data-project-it><h3>Atleta</h3><p>Calendario personale, partecipazione, feedback dello staff e progressi individuali.</p></div></div>
+  </div>
+ </div>
+
+ <div class="project-section">
+  <div data-project-en><h2>Proposed functional areas</h2><p class="project-lead">These are directions to explore, not a list of fully implemented services.</p></div>
+  <div data-project-it><h2>Aree funzionali proposte</h2><p class="project-lead">Sono ambiti da approfondire, non funzionalità già completamente operative.</p></div>
+  <div class="project-areas">
+   <div class="project-area"><span class="num">01</span><div data-project-en><b>Club and team management</b><p>Organise teams, seasons, player registrations, staff responsibilities and club activities.</p></div><div data-project-it><b>Gestione del club e delle squadre</b><p>Organizzare squadre, stagioni, iscrizioni degli atleti, responsabilità dello staff e attività della società.</p></div></div>
+   <div class="project-area"><span class="num">02</span><div data-project-en><b>Attendance and technical activity</b><p>Record participation and selected training indicators with simple workflows.</p></div><div data-project-it><b>Presenze e attività tecnica</b><p>Registrare la partecipazione e alcuni indicatori degli allenamenti con procedure semplici.</p></div></div>
+   <div class="project-area"><span class="num">03</span><div data-project-en><b>Match performance</b><p>Capture key actions and review team or player statistics across sets and matches.</p></div><div data-project-it><b>Prestazioni in gara</b><p>Raccogliere le azioni principali e analizzare le statistiche di squadra o individuali.</p></div></div>
+   <div class="project-area"><span class="num">04</span><div data-project-en><b>Physical assessment and development</b><p>Record structured tests and follow individual progress over time.</p></div><div data-project-it><b>Valutazione fisica e sviluppo</b><p>Registrare test strutturati e seguire nel tempo i progressi individuali.</p></div></div>
+  </div>
+ </div>
+
+ <div class="project-section project-scout">
+  <div data-project-en><h3>Feature to explore: talent detection and scouting</h3><p>Could a structured scouting area help clubs receive and assess emerging player profiles across regions? Profiles might include age group, position, playing history, competition level, video evidence and scout observations. This is a proposed direction, not an automated talent-detection system currently available. Its practical value, review process and safeguards—especially for minors—need expert guidance.</p></div>
+  <div data-project-it><h3>Funzionalità da approfondire: talent detection e scouting</h3><p>Uno spazio strutturato per ricevere e valutare profili di atleti emergenti, anche da altri Paesi, potrebbe essere utile alle società? I profili potrebbero includere fascia d’età, ruolo, esperienza, livello competitivo, video e osservazioni degli scout. È una proposta da esplorare, non un sistema automatico già disponibile. Utilità concreta, processo di valutazione e tutele — soprattutto per i minorenni — richiedono il parere di esperti.</p></div>
+ </div>
+
+ <div class="project-section">
+  <div data-project-en><h2>What we would like to learn from club leadership</h2><p class="project-lead">Your experience can help identify real operational challenges and decide what should be developed first.</p></div>
+  <div data-project-it><h2>Cosa vorremmo comprendere dalla Direzione</h2><p class="project-lead">La vostra esperienza può aiutarci a individuare le reali difficoltà organizzative e a definire le priorità di sviluppo.</p></div>
+  <div class="project-areas">
+   <div class="project-area"><span class="num">Q1</span><div data-project-en><b>Current challenges</b><p>Which management activities take the most time or create the greatest coordination difficulties?</p></div><div data-project-it><b>Criticità attuali</b><p>Quali attività gestionali richiedono più tempo o creano maggiori difficoltà di coordinamento?</p></div></div>
+   <div class="project-area"><span class="num">Q2</span><div data-project-en><b>Missing tools or information</b><p>What information or digital tools are currently missing or difficult to access?</p></div><div data-project-it><b>Strumenti o informazioni mancanti</b><p>Quali informazioni o strumenti digitali mancano oggi o sono difficili da reperire?</p></div></div>
+   <div class="project-area"><span class="num">Q3</span><div data-project-en><b>Practical usefulness</b><p>Which proposed areas could bring real value to your club, and which would be less relevant?</p></div><div data-project-it><b>Utilità concreta</b><p>Quali aree proposte potrebbero portare un valore reale alla società e quali sarebbero meno rilevanti?</p></div></div>
+   <div class="project-area"><span class="num">Q4</span><div data-project-en><b>Development priorities</b><p>Which one or two functions should be prioritised for a first practical test?</p></div><div data-project-it><b>Priorità di sviluppo</b><p>Quali una o due funzionalità dovrebbero essere sviluppate e testate per prime?</p></div></div>
+  </div>
+ </div>
+
+ <div class="feedback-panel">
+  <div data-project-en><h2>Share your feedback</h2><p>A short questionnaire will help us understand your club’s needs, identify what is missing and refine VolleySphere around practical priorities. Thank you for contributing your experience.</p></div>
+  <div data-project-it><h2>Condividi il tuo feedback</h2><p>Un breve questionario ci aiuterà a comprendere le esigenze della società, individuare ciò che manca e perfezionare VolleySphere partendo da priorità concrete. Grazie per condividere la vostra esperienza.</p></div>
+  <div class="feedback-actions">
+   <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScjG7EZZfGTYt0gDviPJL32f6SUJ8sm7db9cNsHy9onlrjOtg/viewform" target="_blank" rel="noopener" data-project-en>Open feedback form ↗</a>
+   <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScjG7EZZfGTYt0gDviPJL32f6SUJ8sm7db9cNsHy9onlrjOtg/viewform" target="_blank" rel="noopener" data-project-it>Apri il modulo di feedback ↗</a>
+  </div>
+ </div>
+ <p class="project-note" data-project-en>Project status: VolleySphere is an independent early-stage concept. The current website is a frontend demonstration with fictional sample data. It is not connected to a real club system and does not yet provide secure accounts, persistent data storage or AI video analysis. Any future development should be guided by club needs, privacy requirements and appropriate safeguards for minors.</p>
+ <p class="project-note" data-project-it>Stato del progetto: VolleySphere è un concept indipendente in fase iniziale. Il sito attuale è una dimostrazione frontend con dati fittizi. Non è collegato ai sistemi di una società e non dispone ancora di account sicuri, archiviazione persistente dei dati o analisi video tramite IA. Ogni sviluppo futuro dovrà partire dalle esigenze delle società, dai requisiti di riservatezza e dalle tutele per i minorenni.</p>
+</section>
+
 </div>
 
 <footer class="sitefooter"><div class="footerinner">
  <div><div class="footerbrand">VolleySphere</div><p>An independent volleyball club management and performance platform concept. Designed to connect club operations, coaching workflows, player development and talent scouting in one clear environment.</p></div>
- <div class="footerlinks"><a href="#" onclick="go('overview');return false">Overview</a><a href="#" onclick="go('managementPortal');return false">Management Portal</a><a href="#" onclick="go('staffPortal');return false">Technical Staff Portal</a><a href="#" onclick="go('playerPortal');return false">Player Portal</a><a href="#" onclick="go('reports');return false">Reports</a></div>
+ <div class="footerlinks"><a href="#" onclick="go('overview');return false">Overview</a><a href="#" onclick="go('managementPortal');return false">Management Portal</a><a href="#" onclick="go('staffPortal');return false">Technical Staff Portal</a><a href="#" onclick="go('playerPortal');return false">Player Portal</a><a href="#" onclick="go('reports');return false">Reports</a><a href="#" onclick="go('projectFeedback');return false">Project & Feedback</a></div>
  </div><div class="footerbottom"><span>© 2026 VolleySphere · Independent concept prototype</span><span>Fictional sample data · Not connected to a club system</span></div></footer>
 
 </main>
@@ -327,7 +412,7 @@ let talent=[
  {name:"Nora Jensen",country:"Denmark",age:"U18",position:"Outside hitter",height:"183 cm",status:"Not proceeding",note:"Current profile does not match this team's recruitment needs."}
 ];
 let events=["#7 Giulia Rossi · Serve in"," #12 Martina Bianchi · Attack point"," #4 Sara Conti · Block touch"];
-function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(page).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page || (['managementPortal','staffPortal','playerPortal'].includes(page) && b.dataset.page===page)));const crumb=document.getElementById('crumb');if(crumb)crumb.textContent=page.replace('Portal',' PORTAL').replace(/([A-Z])/g,' $1').toUpperCase().trim();window.scrollTo(0,0)}
+function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(page).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page || (['managementPortal','staffPortal','playerPortal'].includes(page) && b.dataset.page===page)));const crumb=document.getElementById('crumb');if(crumb)crumb.textContent=page==='projectFeedback'?'PROJECT & FEEDBACK':page.replace('Portal',' PORTAL').replace(/([A-Z])/g,' $1').toUpperCase().trim();window.scrollTo(0,0)}
 document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(b)go(b.dataset.page)});
 function toast(msg){let r=document.getElementById('toastRoot');r.innerHTML='<div class="toast">'+msg+'</div>';setTimeout(()=>r.innerHTML='',2600)}
 function teamDetail(team){go('teams');document.getElementById('playerTitle').textContent=team+' · players';renderPlayers(team)}
@@ -354,8 +439,8 @@ function openPhysical(){modal('Add a physical test result',`<div class="formgrid
 function addPhysical(){if(!document.getElementById('pResult').value.trim()){toast('Please enter a test result.');return}physical.unshift({player:document.getElementById('pPlayer').value,test:document.getElementById('pTest').value,result:document.getElementById('pResult').value,date:"25 Nov 2026",by:document.getElementById('pBy').value});renderPhysical();closeModal();toast('Test result added to this demo. Not saved to a server.')}
 
 const uiText={
- en:{navOverview:"Overview",navManagement:"Management Portal",navStaff:"Technical Staff Portal",navPlayer:"Player Portal",workspace:"VOLLEYSPHERE",demoData:"CONCEPT DEMO",language:"Language",signIn:"Sign in",welcome:"Welcome to VolleySphere",explore:"Explore your portal",choose:"Select a role to understand its workspace",purpose:"OUR PURPOSE",purposeTitle:"Bringing every part of the volleyball journey together",portalManagement:"Management Portal",portalStaff:"Technical Staff Portal",portalPlayer:"Player Portal"},
- it:{navOverview:"Panoramica",navManagement:"Portale Direzione",navStaff:"Portale Staff Tecnico",navPlayer:"Portale Atleta",workspace:"VOLLEYSPHERE",demoData:"DEMO CONCETTUALE",language:"Lingua",signIn:"Accedi",welcome:"Benvenuti in VolleySphere",explore:"Esplora il tuo portale",choose:"Scegli un ruolo per scoprire il relativo spazio di lavoro",purpose:"IL NOSTRO OBIETTIVO",purposeTitle:"Connettere ogni aspetto del percorso nella pallavolo",portalManagement:"Portale Direzione",portalStaff:"Portale Staff Tecnico",portalPlayer:"Portale Atleta"}
+ en:{navOverview:"Overview",navManagement:"Management Portal",navStaff:"Technical Staff Portal",navPlayer:"Player Portal",navProject:"Project & Feedback",workspace:"VOLLEYSPHERE",demoData:"CONCEPT DEMO",language:"Language",signIn:"Sign in",welcome:"Welcome to VolleySphere",explore:"Explore your portal",choose:"Select a role to understand its workspace",purpose:"OUR PURPOSE",purposeTitle:"Bringing every part of the volleyball journey together",portalManagement:"Management Portal",portalStaff:"Technical Staff Portal",portalPlayer:"Player Portal"},
+ it:{navOverview:"Panoramica",navManagement:"Portale Direzione",navStaff:"Portale Staff Tecnico",navPlayer:"Portale Atleta",navProject:"Progetto e feedback",workspace:"VOLLEYSPHERE",demoData:"DEMO CONCETTUALE",language:"Lingua",signIn:"Accedi",welcome:"Benvenuti in VolleySphere",explore:"Esplora il tuo portale",choose:"Scegli un ruolo per scoprire il relativo spazio di lavoro",purpose:"IL NOSTRO OBIETTIVO",purposeTitle:"Connettere ogni aspetto del percorso nella pallavolo",portalManagement:"Portale Direzione",portalStaff:"Portale Staff Tecnico",portalPlayer:"Portale Atleta"}
 };
 function setLanguage(lang){
  const d=uiText[lang]||uiText.en;
@@ -497,7 +582,11 @@ function translatePage(lang){
 const translationObserver=new MutationObserver(()=>{if(document.documentElement.lang==="it")translatePage("it")});
 translationObserver.observe(document.body,{childList:true,subtree:true});
 const baseSetLanguage=setLanguage;
-setLanguage=function(lang){baseSetLanguage(lang);translatePage(lang);renderPortalActionCards();};
+setLanguage=function(lang){
+ baseSetLanguage(lang);translatePage(lang);renderPortalActionCards();
+ document.querySelectorAll('[data-project-en]').forEach(el=>el.classList.toggle('hidden',lang!=='en'));
+ document.querySelectorAll('[data-project-it]').forEach(el=>el.classList.toggle('hidden',lang!=='it'));
+};
 const baseOpenLogin=openLogin;
 openLogin=function(){
  if(document.documentElement.lang!=="it"){baseOpenLogin();return;}
